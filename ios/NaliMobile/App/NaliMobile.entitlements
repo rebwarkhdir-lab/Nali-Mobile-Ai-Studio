@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- App Group shared container for Main App and WidgetKit Extension -->
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.nalimobile.app</string>
+	</array>
+	
+	<!-- Shared Keychain Access Group for secure Supabase RLS session token -->
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)group.com.nalimobile.app</string>
+	</array>
+	
+	<!-- Apple Push Notification Service (APNs) -->
+	<key>aps-environment</key>
+	<string>development</string>
+</dict>
+</plist>

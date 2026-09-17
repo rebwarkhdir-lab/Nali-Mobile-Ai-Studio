@@ -1,0 +1,491 @@
+@import "tailwindcss";
+
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #06b6d4;
+  --custom-radius: 16px;
+  --custom-radius-lg: 20px;
+}
+
+body {
+  background-color: #0b0f1a;
+  color: #e2e8f0;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Font scale modifiers */
+html.font-scale-sm {
+  font-size: 14.5px;
+}
+html.font-scale-md {
+  font-size: 16px;
+}
+html.font-scale-lg {
+  font-size: 17.5px;
+}
+
+/* Number font options */
+html.font-numbers-mono .font-mono,
+html.font-numbers-mono [data-currency],
+html.font-numbers-mono .price-tag,
+html.font-numbers-mono .tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* RTL / Kurdish Typography */
+html[lang="ku"] {
+  font-family: 'Noto Kufi Arabic', 'Noto Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+}
+
+html[lang="ku"] .font-mono {
+  /* Keep mono fonts intact for serial numbers, IMEI, etc., but adjust weight */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* ==========================================================================
+   APPEARANCE MODES: OLED Pure Black & Modern Light Theme
+   ========================================================================== */
+
+/* 1. OLED Pure Black Mode */
+html.appearance-oled body,
+html.appearance-oled .bg-\[\#0b0f1a\],
+html.appearance-oled .bg-\[\#080b14\],
+html.appearance-oled .bg-\[\#080c16\],
+html.appearance-oled .bg-\[\#060810\] {
+  background-color: #000000 !important;
+}
+
+html.appearance-oled .bg-\[\#111625\],
+html.appearance-oled .bg-\[\#121827\],
+html.appearance-oled .bg-\[\#161c2c\],
+html.appearance-oled .bg-\[\#101524\],
+html.appearance-oled .bg-slate-900,
+html.appearance-oled .bg-slate-900\/90,
+html.appearance-oled .bg-slate-900\/80 {
+  background-color: #060911 !important;
+}
+
+html.appearance-oled .border-slate-800,
+html.appearance-oled .border-slate-800\/60,
+html.appearance-oled .border-slate-800\/80 {
+  border-color: #1a2234 !important;
+}
+
+/* 2. Luxury Modern Light Mode */
+html.appearance-light body {
+  background-color: #f4f6fb !important;
+  color: #1e293b !important;
+}
+
+html.appearance-light .bg-\[\#0b0f1a\],
+html.appearance-light .bg-\[\#080b14\],
+html.appearance-light .bg-\[\#080c16\],
+html.appearance-light .bg-\[\#060810\] {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+}
+
+html.appearance-light .bg-\[\#111625\],
+html.appearance-light .bg-\[\#121827\],
+html.appearance-light .bg-\[\#161c2c\],
+html.appearance-light .bg-\[\#101524\],
+html.appearance-light .bg-slate-900,
+html.appearance-light .bg-slate-900\/90,
+html.appearance-light .bg-slate-900\/80 {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+html.appearance-light .bg-slate-950 {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html.appearance-light .bg-slate-800,
+html.appearance-light .bg-slate-800\/80,
+html.appearance-light .bg-slate-800\/50 {
+  background-color: #eef2f6 !important;
+  color: #1e293b !important;
+}
+
+html.appearance-light .text-white,
+html.appearance-light .text-slate-100,
+html.appearance-light .text-slate-200 {
+  color: #0f172a !important;
+}
+
+html.appearance-light .text-slate-300,
+html.appearance-light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.appearance-light .text-slate-500 {
+  color: #64748b !important;
+}
+
+html.appearance-light .border-slate-800,
+html.appearance-light .border-slate-800\/60,
+html.appearance-light .border-slate-800\/80,
+html.appearance-light .border-slate-800\/40,
+html.appearance-light .border-slate-700,
+html.appearance-light .border-slate-700\/80,
+html.appearance-light .border-slate-700\/60 {
+  border-color: #e2e8f0 !important;
+}
+
+/* ==========================================================================
+   THEME PALETTE GRADIENTS & ACCENT HIGHLIGHTS
+   ========================================================================== */
+
+/* Emerald FinTech */
+html.theme-emerald-fintech .theme-gradient-text {
+  background: linear-gradient(to right, #10b981, #14b8a6, #06b6d4);
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+html.theme-emerald-fintech .theme-active-border {
+  border-color: rgba(16, 185, 129, 0.4) !important;
+}
+html.theme-emerald-fintech .theme-primary-bg {
+  background-color: #10b981 !important;
+}
+
+/* Titanium Slate */
+html.theme-monochrome-titanium .theme-gradient-text {
+  background: linear-gradient(to right, #cbd5e1, #94a3b8, #f1f5f9);
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+html.theme-monochrome-titanium .theme-active-border {
+  border-color: rgba(148, 163, 184, 0.4) !important;
+}
+
+/* Royal Amethyst */
+html.theme-royal-amethyst .theme-gradient-text {
+  background: linear-gradient(to right, #c084fc, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+html.theme-royal-amethyst .theme-active-border {
+  border-color: rgba(168, 85, 247, 0.4) !important;
+}
+
+/* Sunset Amber */
+html.theme-sunset-amber .theme-gradient-text {
+  background: linear-gradient(to right, #fbbf24, #f97316, #ef4444);
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+html.theme-sunset-amber .theme-active-border {
+  border-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+/* Oceanic Azure */
+html.theme-ocean-azure .theme-gradient-text {
+  background: linear-gradient(to right, #38bdf8, #0284c7, #6366f1);
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+html.theme-ocean-azure .theme-active-border {
+  border-color: rgba(2, 132, 199, 0.4) !important;
+}
+
+/* Crimson Ruby */
+html.theme-crimson-ruby .theme-gradient-text {
+  background: linear-gradient(to right, #fb7185, #e11d48, #f97316);
+  -webkit-background-clip: text;
+  color: transparent !important;
+}
+html.theme-crimson-ruby .theme-active-border {
+  border-color: rgba(225, 29, 72, 0.4) !important;
+}
+
+/* ==========================================================================
+   UI DENSITY CONTROLS
+   ========================================================================== */
+
+/* Compact Cashier Mode */
+html.density-compact table td, 
+html.density-compact table th {
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  font-size: 0.8125rem !important;
+}
+html.density-compact .compact-tight {
+  gap: 0.375rem !important;
+}
+
+/* Spacious Tablet Mode */
+html.density-spacious table td, 
+html.density-spacious table th {
+  padding-top: 0.85rem !important;
+  padding-bottom: 0.85rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+html.density-spacious button {
+  min-height: 42px;
+}
+
+/* ==========================================================================
+   RADIUS CONTROLS
+   ========================================================================== */
+html.radius-sharp .rounded-2xl,
+html.radius-sharp .rounded-3xl,
+html.radius-sharp .rounded-xl {
+  border-radius: 6px !important;
+}
+
+html.radius-smooth .rounded-2xl {
+  border-radius: 24px !important;
+}
+html.radius-smooth .rounded-xl {
+  border-radius: 18px !important;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & PERFORMANCE MODES
+   ========================================================================== */
+html.high-contrast-mode * {
+  border-color: rgba(148, 163, 184, 0.35) !important;
+}
+html.high-contrast-mode .text-slate-400 {
+  color: #cbd5e1 !important;
+}
+
+html.reduce-motion-mode *,
+html.reduce-motion-mode *::before,
+html.reduce-motion-mode *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+html.no-glass * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ==========================================================================
+   SMOOTH PERFORMANCE, GPU ACCELERATION & LUXURY SCROLLBARS
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth GPU accelerated elements */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Custom ultra-clean dark scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.45);
+}
+
+/* Subtle focus ring style */
+:focus-visible {
+  outline: 2px solid rgba(99, 102, 241, 0.6);
+  outline-offset: 1px;
+}
+
+/* ==========================================================================
+   PRINT STYLES FOR MODALS & RECEIPTS
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  /* Hide all generic app UI by default in print mode */
+  body > #root > * {
+    display: none !important;
+  }
+  
+  /* Show printable areas */
+  [id^="printable-"],
+  #invoice-render-target,
+  #invoice-capture-area {
+    display: flex !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100vh !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 18px !important;
+    background: white !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+  }
+  
+  /* Hide print action buttons inside the printable area */
+  button, .no-print, header, footer:not(.print-footer) {
+    display: none !important;
+  }
+}
+
+/* Suppress native browser search clear & cancel buttons across webkit and ms engines */
+@layer base {
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  input::-ms-clear,
+  input::-ms-reveal {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Prevent automatic mobile viewport zoom on input focus in iOS/Safari/Chrome */
+  @media screen and (max-width: 768px) {
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Prevent double-tap zoom delay on interactive elements */
+  button, input, select, textarea, a {
+    touch-action: manipulation;
+  }
+
+  /* Anti-Autofill & Password-Vault Masking for Administrator Logins */
+  .admin-masked-input {
+    -webkit-text-security: disc !important;
+    text-security: disc !important;
+    font-family: text-security-disc, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* ==========================================================================
+     UNIVERSAL MODAL & DRAWER BACKGROUND SCROLL LOCK
+     ========================================================================== */
+  
+  /* Lock html & body when any modal, drawer, or sidebar is active */
+  html.modal-open,
+  body.modal-open {
+    overflow: hidden !important;
+    touch-action: none !important;
+    overscroll-behavior: none !important;
+  }
+
+  /* Disable scrolling on the main viewport when modal-open is active */
+  body.modal-open #app-main-viewport {
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+  }
+
+  /* Prevent backdrop overlays from dragging the underlying page */
+  .modal-backdrop,
+  [data-modal-backdrop="true"] {
+    touch-action: none !important;
+    overscroll-behavior: contain !important;
+  }
+
+  /* Ensure scrollable containers inside modals scroll smoothly with overscroll containment */
+  [role="dialog"] .overflow-y-auto,
+  [role="dialog"] .overflow-auto,
+  [data-modal="true"] .overflow-y-auto,
+  [data-modal="true"] .overflow-auto,
+  [data-drawer="true"] .overflow-y-auto,
+  [data-drawer="true"] .overflow-auto,
+  .modal-scrollable,
+  [data-modal-scrollable="true"] {
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE & IPHONE NOTCH / DYNAMIC ISLAND / SAFE AREA INSET RULES
+   ========================================================================== */
+
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+}
+
+/* Mobile top header safe area clearance across all iPhones and mobile devices */
+#app-mobile-header {
+  padding-top: max(calc(env(safe-area-inset-top, 0px) + 0.5rem), 0.75rem) !important;
+  padding-left: max(calc(env(safe-area-inset-left, 0px) + 0.75rem), 0.75rem);
+  padding-right: max(calc(env(safe-area-inset-right, 0px) + 0.75rem), 0.75rem);
+}
+
+/* Login screen safe-area positioning for iPhone Dynamic Island, notch, and status bar */
+.login-safe-container {
+  padding-top: max(calc(env(safe-area-inset-top, 0px) + 1.25rem), 3.75rem);
+  padding-bottom: max(calc(env(safe-area-inset-bottom, 0px) + 2rem), 3.5rem);
+  padding-left: max(calc(env(safe-area-inset-left, 0px) + 1rem), 1rem);
+  padding-right: max(calc(env(safe-area-inset-right, 0px) + 1rem), 1rem);
+}
+
+/* PWA / Standalone mode on iOS devices with notch or Dynamic Island */
+@supports (-webkit-touch-callout: none) {
+  html.ios-standalone #app-mobile-header,
+  html.is-ios #app-mobile-header {
+    /* Guarantees clean clearance if env() isn't yet computed */
+    padding-top: max(calc(env(safe-area-inset-top, 0px) + 0.5rem), 3.25rem) !important;
+  }
+
+  html.ios-standalone .login-safe-container,
+  html.is-ios .login-safe-container {
+    padding-top: max(calc(env(safe-area-inset-top, 0px) + 1.5rem), 4.25rem) !important;
+  }
+}
+
+@media (display-mode: standalone) {
+  #app-mobile-header {
+    padding-top: max(calc(env(safe-area-inset-top, 0px) + 0.5rem), 3.25rem) !important;
+  }
+
+  .login-safe-container {
+    padding-top: max(calc(env(safe-area-inset-top, 0px) + 1.5rem), 4.25rem) !important;
+  }
+}
+

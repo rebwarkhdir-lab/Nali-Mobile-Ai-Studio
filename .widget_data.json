@@ -1,0 +1,16 @@
+{
+  "sales": [],
+  "debts": [],
+  "lowStock": [],
+  "stats": {
+    "todaySalesCount": 0,
+    "todaySalesRevenueUSD": 0,
+    "todaySalesRevenueIQD": 0,
+    "pendingDebtsCount": 0,
+    "totalDebtDueUSD": 0,
+    "lowStockAlertCount": 0
+  },
+  "lastUpdated": "2026-09-16T03:27:37.462Z",
+  "storeName": "NALI MOBILE",
+  "exchangeRate": 1530
+}

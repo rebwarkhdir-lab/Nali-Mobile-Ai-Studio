@@ -1,0 +1,6 @@
+{
+  "name": "Nali Mobile",
+  "description": "Professional Mobile Phone Shop Management System with POS Terminal, Inventory, Defective Returns & RMA Claims, Debts, Installments, Suppliers, iPhone Widgets, and Dual-Currency Financial Reports",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

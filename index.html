@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Nali Mobile</title>
+    <script>
+      // Professional resilient error filter: Intercepts benign WebSocket/HMR disconnect messages
+      // native to container reverse proxies before they surface as unhandled rejections or error overlays.
+      (function() {
+        function isBenignWsError(err) {
+          if (!err) return false;
+          var str = '';
+          try {
+            if (typeof err === 'string') str = err;
+            else if (err && err.message) str = err.message;
+            else if (err && err.reason) str = typeof err.reason === 'string' ? err.reason : (err.reason.message || '');
+            else str = String(err);
+          } catch(e) { str = ''; }
+          return /websocket/i.test(str) || /failed to connect to websocket/i.test(str) || /WebSocket closed/i.test(str);
+        }
+
+        var origError = console.error;
+        console.error = function() {
+          for (var i = 0; i < arguments.length; i++) {
+            if (isBenignWsError(arguments[i])) return;
+          }
+          origError.apply(console, arguments);
+        };
+
+        var origWarn = console.warn;
+        console.warn = function() {
+          for (var i = 0; i < arguments.length; i++) {
+            if (isBenignWsError(arguments[i])) return;
+          }
+          origWarn.apply(console, arguments);
+        };
+
+        window.addEventListener('unhandledrejection', function(e) {
+          if (isBenignWsError(e.reason)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;
+          }
+        }, true);
+
+        window.addEventListener('error', function(e) {
+          if (isBenignWsError(e.message) || isBenignWsError(e.error)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;
+          }
+        }, true);
+      })();
+    </script>
+    <meta name="description" content="Professional Mobile Phone Shop Management System with POS Terminal, Inventory, Defective Returns & RMA Claims, Debts, Installments, Suppliers, iPhone Widgets, and Dual-Currency Financial Reports" />
+    <meta property="og:title" content="Nali Mobile" />
+    <meta property="og:description" content="Professional Mobile Phone Shop Management System with POS Terminal, Inventory, Defective Returns & RMA Claims, Debts, Installments, Suppliers, iPhone Widgets, and Dual-Currency Financial Reports" />
+    <meta property="og:image" content="/apple-touch-icon.png" />
+    
+    <!-- iOS / Safari Standalone Web App Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Nali Mobile" />
+    <meta name="application-name" content="Nali Mobile" />
+    <meta name="theme-color" content="#070913" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/pwa-192x192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/pwa-512x512.png" />
+
+    <!-- Google Fonts for Kurdish (Sorani) Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+
+    <!-- Global Custom Stylesheet -->
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body class="bg-[#0b0f1a] text-slate-100 antialiased select-none">
+    <div id="root">
+      <div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background-color:#0b0f1a;z-index:9999;flex-direction:column;gap:1.5rem;">
+        <style>
+          @keyframes pulse-logo {
+            0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.4)); }
+            50% { opacity: 0.7; transform: scale(0.95); filter: drop-shadow(0 0 4px rgba(167, 139, 250, 0.1)); }
+          }
+          @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        </style>
+        <div style="position:relative;width:72px;height:72px;display:flex;align-items:center;justify-content:center;background:#ffffff;border-radius:20px;animation: pulse-logo 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);overflow:hidden;padding:4px;">
+          <img src="/apple-touch-icon.png" alt="Nali Mobile" style="width:100%;height:100%;object-fit:contain;border-radius:16px;" />
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:16px;height:16px;border:2px solid rgba(148, 163, 184, 0.2);border-top-color:#94a3b8;border-radius:50%;animation: spin-slow 1s linear infinite;"></div>
+          <span style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:13px;font-weight:600;color:#94a3b8;letter-spacing:1px;text-transform:uppercase;">Initializing System</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Synchronously bootstrap server-side Supabase credentials to all connected devices (iPad, Mobile, Desktop)
+      try {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/api/supabase-config', false);
+        xhr.send(null);
+        if (xhr.status === 200) {
+          var cfg = JSON.parse(xhr.responseText);
+          if (cfg && cfg.isConfigured && cfg.supabaseUrl && cfg.supabaseAnonKey) {
+            localStorage.setItem('nali_supabase_url', cfg.supabaseUrl);
+            localStorage.setItem('nali_supabase_anon_key', cfg.supabaseAnonKey);
+            window.__SUPABASE_SERVER_CONFIG__ = cfg;
+          }
+        }
+      } catch (e) {
+        console.warn('Config bootstrap notice:', e);
+      }
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').catch(function(err) {
+            console.log('SW notice:', err);
+          });
+        });
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
